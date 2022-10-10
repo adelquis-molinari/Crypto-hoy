@@ -1,12 +1,13 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
-
+import { Routes, Route } from "react-router-dom";
+import Main from "./components/Main";
+import BaseLayout from "./layout/BaseLayout";
 function App() {
   return (
-    <div>
-      <h1>Cryptoverse</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<BaseLayout />}>
+        <Route index element={<Main />} />
+      </Route>
+    </Routes>
   );
 }
 
