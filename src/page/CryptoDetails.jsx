@@ -19,6 +19,7 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../services/cryptoApi";
+import Loader from "../components/Loader";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -32,7 +33,7 @@ export default function CryptoDetails() {
     timePeriod,
   });
   const cryptoDetails = data?.data?.coin;
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
@@ -128,8 +129,8 @@ export default function CryptoDetails() {
               as the base and quote currency, the rank, and trading volume.
             </p>
           </Col>
-          {stats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
+          {stats.map(({ icon, title, value }, index) => (
+            <Col className="coin-stats" key={index}>
               <Col className="coin-stats-name">
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
@@ -148,8 +149,8 @@ export default function CryptoDetails() {
               as the base and quote currency, the rank, and trading volume.
             </p>
           </Col>
-          {genericStats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
+          {genericStats.map(({ icon, title, value }, index) => (
+            <Col className="coin-stats" key={index}>
               <Col className="coin-stats-name">
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
