@@ -1,3 +1,4 @@
+import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -10,10 +11,14 @@ export default function BaseLayout() {
         <Navbar />
       </div>
       <div className="main">
-        <Outlet />
-      </div>
-      <div className="footer">
-        <Footer />
+        <Layout>
+          <div className="routes">
+            <Outlet />
+          </div>
+        </Layout>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </div>
   );
