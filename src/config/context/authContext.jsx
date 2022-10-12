@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const signup = (email, password) => {
+  const signUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
   }, [userData]);
   return (
     <authContext.Provider
-      value={{ signup, logIn, logInWithGoogle, logOut, userData, loading }}
+      value={{ signUp, logIn, logInWithGoogle, logOut, userData, loading }}
     >
       {children}
     </authContext.Provider>

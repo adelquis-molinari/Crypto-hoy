@@ -8,7 +8,7 @@ import {
   FundOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
-import icon from "../assets/cryptocurrency.png";
+import icon from "../assets/cryptoHoy.png";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(true);
