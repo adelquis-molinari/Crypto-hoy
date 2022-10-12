@@ -4,8 +4,10 @@ import Cryptocurrencies from "./page/Cryptocurrencies";
 import CryptoDetails from "./page/CryptoDetails";
 import Exchanges from "./page/Exchanges";
 import Homepage from "./page/Homepage";
+import Login from "./page/Login";
 import News from "./page/News";
 import NotFound from "./page/NotFound";
+import Register from "./page/Register";
 
 function App() {
   return (
@@ -16,8 +18,10 @@ function App() {
         <Route path="cryptocurrencies" element={<Cryptocurrencies />} />
         <Route path="crypto/:coinId" element={<CryptoDetails />} />
         <Route path="news" element={<News />} />
-        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
