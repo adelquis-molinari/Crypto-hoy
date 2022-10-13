@@ -373,3 +373,7 @@ a:hover {
   padding: 20px;
   align-items: center;
 }
+.error-span {
+  color: red;
+  font-size: 0.8rem;
+}
