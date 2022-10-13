@@ -1,4 +1,14 @@
-import { Form, Input, Checkbox, Row, Col, Typography, Button } from "antd";
+import { useState } from "react";
+import {
+  Form,
+  Input,
+  Checkbox,
+  Row,
+  Col,
+  Typography,
+  Button,
+  message,
+} from "antd";
 import { rulesEmail, rulesPassword } from "../utils/rules/rulesForm";
 import "../styles/Login.css";
 import { useAuth } from "../hooks/useAuth";
@@ -7,17 +17,27 @@ import { useNavigate } from "react-router-dom";
 export default function Login() {
   const { logIn } = useAuth();
   const navigate = useNavigate();
+  const [errorSpan, setErrorSpan] = useState("");
 
   const onFinish = (e) => {
     // TODO: agregar
-    const user = logIn(e.email, e.password);
-    navigate("/");
+    setErrorSpan("");
+    logIn(e.email, e.password)
+      .then(() => navigate("/"))
+      .catch((e) => {
+        if (e.code === "auth/wrong-password") {
+          message.error("There was a typo, wrong password 😵");
+          setErrorSpan("There was a typo, wrong password 😵");
+        } else if (e.code === "auth/user-not-found") {
+          message.error("Ouuups! User not found 😫");
+          setErrorSpan("Ouuups! User not found 😫");
+        } else {
+          message.error("Could it be that you don't have an account? 🤔");
+          message.info("Try creating one! Register now!");
+          setErrorSpan("Try creating one! Register now!");
+        }
+      });
   };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-
   return (
     <>
       <Row justify="center" align="middle" className="login-container">
@@ -32,7 +52,6 @@ export default function Login() {
             name="basic"
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
           >
             <Form.Item label="E-mail" name="email" rules={rulesEmail}>
               <Input />
@@ -43,6 +62,7 @@ export default function Login() {
             <Form.Item name="remember" valuePropName="checked">
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
+            <span className="error-span">{errorSpan}</span>
             <Form.Item>
               <Button type="primary" htmlType="submit">
                 Login

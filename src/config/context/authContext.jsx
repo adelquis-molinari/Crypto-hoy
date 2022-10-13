@@ -13,7 +13,7 @@ import { useEffect } from "react";
 export const authContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState({});
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
 
   const signUp = (email, password) => {
@@ -36,13 +36,13 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       const data = currentUser;
-      setUserData(data);
+      setUser(data);
       setLoading(false);
     });
-  }, [userData]);
+  }, [user]);
   return (
     <authContext.Provider
-      value={{ signUp, logIn, logInWithGoogle, logOut, userData, loading }}
+      value={{ signUp, logIn, logInWithGoogle, logOut, user, loading }}
     >
       {children}
     </authContext.Provider>

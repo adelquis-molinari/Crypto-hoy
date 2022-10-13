@@ -36,6 +36,9 @@ a:hover {
 }
 .nav-container {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   left: 0;
   margin: 10px;
   height: 100vh;
@@ -372,4 +375,8 @@ a:hover {
   flex-direction: column;
   padding: 20px;
   align-items: center;
+}
+.error-span {
+  color: red;
+  font-size: 0.8rem;
 }

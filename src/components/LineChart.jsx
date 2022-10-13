@@ -16,10 +16,9 @@ function LineChart({ coinHistory, currentPrice, coinName }) {
       new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
     );
   }
-
   const data = {
     labels: coinTimestamp,
-    datasets: [
+    data: [
       {
         label: "Price In USD",
         data: coinPrice,
@@ -49,7 +48,7 @@ function LineChart({ coinHistory, currentPrice, coinName }) {
           </Title>
         </Col>
       </Row>
-      {/* <Line data={data} options={options} /> */}
+      {/* <Line  data={data} options={options} /> */}
     </>
   );
 }
