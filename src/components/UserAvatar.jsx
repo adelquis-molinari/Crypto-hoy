@@ -3,7 +3,7 @@ import { Avatar, Typography, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
 function UserAvatar() {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
   return (
     <div>
       <Avatar src={<UserOutlined />} shape="square" size={64} />

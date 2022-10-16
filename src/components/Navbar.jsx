@@ -60,7 +60,6 @@ export default function Navbar() {
               <Link to="/news">News</Link>
             </Menu.Item>
           </Menu>
-
           <UserAvatar />
         </div>
       )}

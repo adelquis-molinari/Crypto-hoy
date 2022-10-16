@@ -2,7 +2,7 @@ import millify from "millify";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
 
-function CardCoins(currency) {
+function CardCoins({ currency }) {
   return (
     <Link to={`/crypto/${currency.uuid}`}>
       <Card
