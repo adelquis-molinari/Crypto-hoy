@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
 
-export const cryptoSlice = createSlice({
-  name: "cryptoSlice",
+export const userDataSlice = createSlice({
+  name: "userDataSlice",
   initialState,
   reducers: {},
 });
 
-export default cryptoSlice.reducer;
+export default userDataSlice.reducer;

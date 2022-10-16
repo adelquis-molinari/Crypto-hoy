@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import BaseLayout from "./layout/BaseLayout";
 import Login from "./page/Login";
 import NotFound from "./page/NotFound";
 import Register from "./page/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboarRouter from "./routes/DashboarRouter";
+import MotionRoute from "./layout/MotionRoute";
 
 function App() {
   return (

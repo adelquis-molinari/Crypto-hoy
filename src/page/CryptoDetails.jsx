@@ -20,6 +20,7 @@ import {
   useGetCryptoHistoryQuery,
 } from "../services/cryptoApi";
 import Loader from "../components/Loader";
+import onTrack from "../assets/onTrack.svg";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -105,6 +106,7 @@ export default function CryptoDetails() {
           {cryptoDetails.name} live price in US Dollar (USD). View value
           statistics, market cap and supply.
         </p>
+        <img src={onTrack} alt="iconTrackesr" className="icontracker" />
       </Col>
       <Select
         defaultValue="7d"
@@ -132,8 +134,8 @@ export default function CryptoDetails() {
               as the base and quote currency, the rank, and trading volume.
             </p>
           </Col>
-          {stats.map(({ icon, title, value }, index) => (
-            <Col className="coin-stats" key={index}>
+          {stats.map(({ icon, title, value }) => (
+            <Col className="coin-stats" key={title}>
               <Col className="coin-stats-name">
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
