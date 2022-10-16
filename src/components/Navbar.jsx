@@ -3,7 +3,6 @@ import { Button, Menu, Typography, Avatar } from "antd";
 import { Link } from "react-router-dom";
 import {
   HomeOutlined,
-  UserOutlined,
   BulbOutlined,
   FundOutlined,
   MenuOutlined,
@@ -49,18 +48,21 @@ export default function Navbar() {
         <MenuOutlined />
       </Button>
       {activeMenu && (
-        <Menu theme="dark">
-          <Menu.Item icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item icon={<FundOutlined />}>
-            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-          </Menu.Item>
-          <Menu.Item icon={<BulbOutlined />}>
-            <Link to="/news">News</Link>
-          </Menu.Item>
+        <div className="menu-container">
+          <Menu theme="dark">
+            <Menu.Item icon={<HomeOutlined />}>
+              <Link to="/">Home</Link>
+            </Menu.Item>
+            <Menu.Item icon={<FundOutlined />}>
+              <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+            </Menu.Item>
+            <Menu.Item icon={<BulbOutlined />}>
+              <Link to="/news">News</Link>
+            </Menu.Item>
+          </Menu>
+
           <UserAvatar />
-        </Menu>
+        </div>
       )}
     </div>
   );
