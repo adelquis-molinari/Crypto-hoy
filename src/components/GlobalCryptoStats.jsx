@@ -1,4 +1,4 @@
-import { Typography, Row, Col, Statistic } from "antd";
+import { Typography, Row, Col, Statistic, Skeleton } from "antd";
 import millify from "millify";
 
 const { Title } = Typography;
@@ -11,6 +11,8 @@ export default function GlobalCryptoStats({ globalStats }) {
     total24hVolume,
     totalMarkets,
   } = globalStats;
+
+  console.log(total);
 
   return (
     <>

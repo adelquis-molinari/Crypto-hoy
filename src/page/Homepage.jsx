@@ -6,6 +6,7 @@ import Cryptocurrencies from "./Cryptocurrencies";
 import News from "./News";
 import Loader from "../components/Loader";
 import GlobalCryptoStats from "../components/GlobalCryptoStats";
+import SkeletonHomepage from "../skeleton/Homepage/SkeletonHomepage";
 
 const { Title } = Typography;
 
@@ -13,7 +14,7 @@ export default function Homepage() {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
-  if (isFetching) return <Loader />;
+  if (isFetching) return <SkeletonHomepage />;
 
   return (
     <>

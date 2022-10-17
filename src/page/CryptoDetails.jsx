@@ -2,7 +2,7 @@ import { useState } from "react";
 import HTMLReactParser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import millify from "millify";
-import { Col, Row, Typography, Select } from "antd";
+import { Col, Row, Typography, Select, Button } from "antd";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -21,6 +21,8 @@ import {
 } from "../services/cryptoApi";
 import Loader from "../components/Loader";
 import onTrack from "../assets/onTrack.svg";
+import offTrack from "../assets/offTrack.svg";
+import "../styles/cryptoDetails.css";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -96,6 +98,13 @@ export default function CryptoDetails() {
       icon: <ExclamationCircleOutlined />,
     },
   ];
+
+  // function to track coin
+
+  const trackCoin = () => {
+    alert("coin tracked");
+  };
+
   return (
     <Col className="coin-detail-container">
       <Col className="coin-heading-container">
@@ -106,13 +115,16 @@ export default function CryptoDetails() {
           {cryptoDetails.name} live price in US Dollar (USD). View value
           statistics, market cap and supply.
         </p>
-        <img src={onTrack} alt="iconTrackesr" className="icontracker" />
+        <Button onClick={trackCoin} className="button-track">
+          <img src={offTrack} alt="iconTrackesr" className="icon-tracker" />
+          Track {cryptoDetails.name}
+        </Button>
       </Col>
       <Select
         defaultValue="7d"
         className="select-timeperiod"
         placeholder="Select Timeperiod"
-        onChange={(value) => setTimeperiod(value)}
+        onChange={(value) => setTimePeriod(value)}
       >
         {time.map((date) => (
           <Option key={date}>{date}</Option>

@@ -1,3 +1,7 @@
-.icontracker {
+.icon-tracker {
   width: 24px;
+  padding-right: 10px;
+}
+.button-track {
+  background: #fff000;
 }

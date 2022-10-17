@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Select, Typography, Row, Col } from "antd";
+import { Select, Row, Col } from "antd";
 import { useGetCryptoNewsQuery } from "../services/newsApi";
 import { useGetCryptosQuery } from "../services/cryptoApi";
-import Loader from "../components/Loader";
 import NewCard from "../components/NewCard";
-import SkeletonNewCard from "../components/SkeletonNewCard";
+import SkeletonNews from "../skeleton/News/SkeletonNews";
 
 export default function News({ simplified }) {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
@@ -15,7 +14,7 @@ export default function News({ simplified }) {
   });
   const { data } = useGetCryptosQuery(100);
 
-  if (!cryptoNews?.value) return <Loader />;
+  if (!cryptoNews?.value) return <SkeletonNews />;
   return (
     <Row gutter={[24, 24]}>
       {!simplified && (
@@ -39,21 +38,9 @@ export default function News({ simplified }) {
           </Select>
         </Col>
       )}
-      {/* {
-        isFetching ? 
-        (
-          <Col xs={24} sm={12} lg={8}>
-          <SkeletonNewCard />
-        </Col>
-        ):
-        cryptoNews.value.map((news, i) => (
+      {cryptoNews.value.map((news, i) => (
         <Col xs={24} sm={12} lg={8} key={i}>
           <NewCard news={news} />
-        </Col>
-      ))} */}
-      {[...Array(6)].map((_, index) => (
-        <Col xs={24} sm={12} lg={8}>
-          <SkeletonNewCard />
         </Col>
       ))}
     </Row>
