@@ -10,7 +10,6 @@ import {
 import icon from "../assets/cryptoHoy.png";
 import { useAuth } from "../hooks/useAuth";
 import UserAvatar from "./UserAvatar";
-
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(null);
