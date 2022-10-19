@@ -1,11 +1,8 @@
 import { Card, Typography, Avatar } from "antd";
-
+import demoImg from "../assets/cryptoNews.jpg";
 const { Title, Text } = Typography;
 
 export default function NewCard({ news }) {
-  const demoImg =
-    "https://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg";
-
   return (
     <Card hoverable className="news-card">
       <a href={news.url} target="_blank" rel="noreferrer">

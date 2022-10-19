@@ -12,8 +12,6 @@ export default function GlobalCryptoStats({ globalStats }) {
     totalMarkets,
   } = globalStats;
 
-  console.log(total);
-
   return (
     <>
       <Title level={2} className="heading">

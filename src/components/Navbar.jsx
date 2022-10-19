@@ -6,15 +6,14 @@ import {
   BulbOutlined,
   FundOutlined,
   MenuOutlined,
+  AimOutlined,
 } from "@ant-design/icons";
 import icon from "../assets/cryptoHoy.png";
-import { useAuth } from "../hooks/useAuth";
 import UserAvatar from "./UserAvatar";
+
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(null);
-
-  const { logOut } = useAuth();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -36,7 +35,7 @@ export default function Navbar() {
       <div className="logo-container">
         <Avatar src={icon} size="large" />
         <Typography.Title level={2} className="logo">
-          <Link to="/">Crypto Hoy</Link>
+          <Link to="/">Cryptoday</Link>
         </Typography.Title>
       </div>
       <Button
@@ -49,14 +48,17 @@ export default function Navbar() {
       {activeMenu && (
         <div className="menu-container">
           <Menu theme="dark">
-            <Menu.Item icon={<HomeOutlined />}>
+            <Menu.Item icon={<HomeOutlined />} key="one">
               <Link to="/">Home</Link>
             </Menu.Item>
-            <Menu.Item icon={<FundOutlined />}>
+            <Menu.Item icon={<FundOutlined />} key="two">
               <Link to="/cryptocurrencies">Cryptocurrencies</Link>
             </Menu.Item>
-            <Menu.Item icon={<BulbOutlined />}>
+            <Menu.Item icon={<BulbOutlined />} key="three">
               <Link to="/news">News</Link>
+            </Menu.Item>
+            <Menu.Item icon={<AimOutlined />} key="four">
+              <Link to="/tracking">Tracking Coins</Link>
             </Menu.Item>
           </Menu>
           <UserAvatar />

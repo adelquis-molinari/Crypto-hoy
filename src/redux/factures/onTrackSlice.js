@@ -6,13 +6,18 @@ export const onTrackSlice = createSlice({
   name: "onTrackSlice",
   initialState,
   reducers: {
-    setOnTrack: (state, action) => {
+    onTrackCoin: (state, action) => {
       state.push(action.payload);
     },
-    deleteTrack: (state, action) => {
-      state.filter((item) => item.id !== action.payload);
+    deleteTrackCoin: (state, action) => {
+      const coinFind = state.find((coin) => coin.uuid === action.payload);
+      if (coinFind) {
+        state.splice(state.indexOf(coinFind), 1);
+      }
     },
   },
 });
+
+export const { onTrackCoin, deleteTrackCoin } = onTrackSlice.actions;
 
 export default onTrackSlice.reducer;
