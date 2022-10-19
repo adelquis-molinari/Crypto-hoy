@@ -1,5 +1,5 @@
 import { Card, Typography, Avatar } from "antd";
-import demoImg from "../assets/cryptoNews.jpg";
+import demoImg from "../assets/cryptonews.jpg";
 const { Title, Text } = Typography;
 
 export default function NewCard({ news }) {
