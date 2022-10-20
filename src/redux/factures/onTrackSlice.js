@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const refTarck = localStorage.getItem("onTrack");
+
+const initialState = refTarck ? JSON.parse(refTarck) : [];
 
 export const onTrackSlice = createSlice({
   name: "onTrackSlice",
@@ -8,11 +10,14 @@ export const onTrackSlice = createSlice({
   reducers: {
     onTrackCoin: (state, action) => {
       state.push(action.payload);
+      //connet to local storage
+      localStorage.setItem("onTrack", JSON.stringify(state));
     },
     deleteTrackCoin: (state, action) => {
       const coinFind = state.find((coin) => coin.uuid === action.payload);
       if (coinFind) {
         state.splice(state.indexOf(coinFind), 1);
+        localStorage.setItem("onTrack", JSON.stringify(state));
       }
     },
   },

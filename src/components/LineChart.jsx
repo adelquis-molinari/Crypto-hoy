@@ -11,6 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import Loader from "./Loader";
 
 ChartJS.register(
   CategoryScale,
@@ -25,17 +26,16 @@ ChartJS.register(
 // const { Title } = Typography;
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
-  const coinPrice = [];
-  const coinTimestamp = [];
-  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    coinPrice.push(coinHistory?.data?.history[i].price);
-  }
+  const coinPrice = useMemo(() => {
+    return coinHistory?.data?.history?.map((coin) => coin.price);
+  }, [coinHistory]);
 
-  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    coinTimestamp.push(
-      new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
+  const coinTimestamp = useMemo(() => {
+    return coinHistory?.data?.history?.map((coin) =>
+      new Date(coin.timestamp).toLocaleDateString()
     );
-  }
+  }, [coinHistory]);
+
   const data = {
     labels: coinTimestamp,
     datasets: [
@@ -57,9 +57,6 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
       },
     ],
   };
-  console.log(
-    new Date(coinHistory.data.history[1].timestamp).toLocaleDateString()
-  );
   const options = {
     scales: {
       yAxes: [

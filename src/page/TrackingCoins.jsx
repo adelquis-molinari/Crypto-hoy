@@ -6,7 +6,6 @@ import ButtonOffTrack from "../components/ButtonOffTrack";
 export default function TrackingCoins() {
   const stateCoins = useSelector((state) => state.onTrackSlice);
   const [data, setData] = useState([]);
-
   useEffect(() => {
     setData(stateCoins);
   }, [stateCoins]);
