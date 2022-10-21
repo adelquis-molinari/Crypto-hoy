@@ -5,6 +5,7 @@ import Register from "./page/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboarRouter from "./routes/DashboarRouter";
 import MotionRoute from "./layout/MotionRoute";
+import "./config/firebase";
 
 function App() {
   return (

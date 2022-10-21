@@ -8,6 +8,8 @@ import {
 } from "../utils/rules/rulesForm";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { setUserData } from "../redux/factures/userDataSlice";
+import { useDispatch } from "react-redux";
 
 const { Option } = Select;
 
@@ -46,8 +48,10 @@ const Register = () => {
   const [form] = Form.useForm();
   const { signUp } = useAuth();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onFinish = (values) => {
+    dispatch(setUserData({ nickname: values.nickname, gender: values.gender }));
     const user = signUp(values.email, values.password);
     navigate("/");
   };
