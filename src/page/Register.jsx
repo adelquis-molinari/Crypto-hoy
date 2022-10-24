@@ -50,10 +50,8 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onFinish = (values) => {
-    dispatch(setUserData({ nickname: values.nickname, gender: values.gender }));
-    const user = signUp(values.email, values.password);
-    navigate("/");
+  const onFinish = async (values) => {
+    await signUp(values.email, values.password).then(() => navigate("/"));
   };
 
   return (

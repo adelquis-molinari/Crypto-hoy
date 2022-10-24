@@ -9,12 +9,12 @@ export default function Footer() {
         level={5}
         style={{ color: "white", textAlign: "center" }}
       >
-        Created by <Link to="/">Adelkis</Link>
+        Creado por <Link to="/">Adelkis</Link>
       </Typography.Title>
       <Space>
-        <Link to="/">Home</Link>
-        <Link to="/tracking">Tracking Coins</Link>
-        <Link to="/news">News</Link>
+        <Link to="/">Inicio</Link>
+        <Link to="/tracking">Seguimiento</Link>
+        <Link to="/news">Noticias</Link>
       </Space>
     </>
   );
