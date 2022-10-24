@@ -1,39 +1,39 @@
-import { Typography, Row, Col, Statistic, Skeleton } from "antd";
+import { Typography, Row, Col, Skeleton } from "antd";
 
 const { Title, Text } = Typography;
 function SkeletonGlobalCryptoStats() {
   return (
     <>
       <Title level={2} className="heading">
-        Global Crypto Stats
+        Estadísticas globales
       </Title>
       <Row>
         <Col span={12}>
-          <Text>Total Cryptocurrencies</Text>
+          <Text>Criptomonedas totales</Text>
           <div>
             <Skeleton.Button active />
           </div>
         </Col>
         <Col span={12}>
-          <Text>Total Exchanges</Text>
+          <Text>Intercambios totales</Text>
           <div>
             <Skeleton.Button active />
           </div>
         </Col>
         <Col span={12}>
-          <Text>Total Market Cap</Text>
+          <Text>Cotizaciones totales</Text>
           <div>
             <Skeleton.Button active />
           </div>
         </Col>
         <Col span={12}>
-          <Text>Total 24h Volume</Text>
+          <Text>Volumen total en 24hs</Text>
           <div>
             <Skeleton.Button active />
           </div>
         </Col>
         <Col span={12}>
-          <Text>Total Markets</Text>
+          <Text>Mercados Totales</Text>
           <div>
             <Skeleton.Button active />
           </div>

@@ -21,19 +21,19 @@ export default function Homepage() {
       <GlobalCryptoStats globalStats={globalStats} />
       <div className="home-heading-container">
         <Title level={2} className="home-title">
-          Top 10 Cryptocurrencies in the world
+          Top 10 Criptomonedas
         </Title>
         <Title level={3} className="show-more">
-          <Link to="/cryptocurrencies">Show More</Link>
+          <Link to="/cryptocurrencies">Ver más</Link>
         </Title>
       </div>
       <Cryptocurrencies simplified />
       <div className="home-heading-container">
         <Title level={2} className="home-title">
-          Latest Crypto News
+          Ultimas noticias
         </Title>
         <Title level={3} className="show-more">
-          <Link to="/news">Show More</Link>
+          <Link to="/news">Ver más</Link>
         </Title>
       </div>
       <News simplified />

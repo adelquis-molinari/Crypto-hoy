@@ -1,8 +1,17 @@
 import millify from "millify";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
+import { useEffect, useState } from "react";
 
 function CardCoins({ currency }) {
+  const [change, setChange] = useState(true);
+
+  useEffect(() => {
+    if (currency.change < 0) {
+      setChange(false);
+    }
+  }, [currency]);
+
   return (
     <Link to={`/crypto/${currency.uuid}`}>
       <Card
@@ -10,9 +19,14 @@ function CardCoins({ currency }) {
         extra={<img className="crypto-image" src={currency.iconUrl} />}
         hoverable
       >
-        <p>Price: {millify(currency.price)}</p>
-        <p>Market Cap: {millify(currency.marketCap)}</p>
-        <p>Daily Change: {millify(currency.change)}%</p>
+        <p>Precio: {millify(currency.price)}</p>
+        <p>Cotización: {millify(currency.marketCap)}</p>
+        <h4>
+          Cambio Diario:{" "}
+          <span className={change ? "change-up" : "change-down"}>
+            {millify(currency.change)}%
+          </span>
+        </h4>
       </Card>
     </Link>
   );

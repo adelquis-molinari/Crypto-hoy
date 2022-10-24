@@ -12,32 +12,32 @@ export default function TrackingCoins() {
 
   const columns = [
     {
-      title: "Rank",
+      title: "Ranking",
       dataIndex: "rank",
       key: "rank",
     },
     {
-      title: "Name",
+      title: "Nombre",
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "Price",
+      title: "Precio",
       dataIndex: "price",
       key: "price",
     },
     {
-      title: "Market Cap",
+      title: "Cotizaciones",
       dataIndex: "marketCap",
       key: "marketCap",
     },
     {
-      title: "Change",
+      title: "Cambios",
       dataIndex: "change",
       key: "change",
     },
     {
-      title: "Action",
+      title: "Acciones",
       dataIndex: "",
       key: "x",
       render: (data) => {
@@ -49,7 +49,7 @@ export default function TrackingCoins() {
 
   return (
     <div>
-      <h1>TrackingCoins</h1>
+      <h1>En seguimiento</h1>
       <Table columns={columns} dataSource={data} />
     </div>
   );

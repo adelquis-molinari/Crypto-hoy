@@ -9,8 +9,6 @@ import {
   AimOutlined,
 } from "@ant-design/icons";
 import icon from "../assets/cryptoHoy.png";
-import UserAvatar from "./UserAvatar";
-
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(null);
@@ -35,7 +33,7 @@ export default function Navbar() {
       <div className="logo-container">
         <Avatar src={icon} size="large" />
         <Typography.Title level={2} className="logo">
-          <Link to="/">Cryptoday</Link>
+          <Link to="/">Crypto Hoy</Link>
         </Typography.Title>
       </div>
       <Button
@@ -49,19 +47,18 @@ export default function Navbar() {
         <div className="menu-container">
           <Menu theme="dark">
             <Menu.Item icon={<HomeOutlined />} key="one">
-              <Link to="/">Home</Link>
+              <Link to="/">Inicio</Link>
             </Menu.Item>
             <Menu.Item icon={<FundOutlined />} key="two">
-              <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+              <Link to="/cryptocurrencies">CriptoMonedas</Link>
             </Menu.Item>
             <Menu.Item icon={<BulbOutlined />} key="three">
-              <Link to="/news">News</Link>
+              <Link to="/news">Noticias</Link>
             </Menu.Item>
             <Menu.Item icon={<AimOutlined />} key="four">
-              <Link to="/tracking">Tracking Coins</Link>
+              <Link to="/tracking">Seguimiento</Link>
             </Menu.Item>
           </Menu>
-          <UserAvatar />
         </div>
       )}
     </div>

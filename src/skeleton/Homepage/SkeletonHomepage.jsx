@@ -11,10 +11,10 @@ export default function SkeletonHomepage() {
       <SkeletonGlobalCryptoStats />
       <div className="home-heading-container">
         <Title level={2} className="home-title">
-          Top 10 Cryptocurrencies in the world
+          Top 10 Criptomonedas
         </Title>
         <Title level={3} className="show-more">
-          Show More
+          Ver más
         </Title>
       </div>
       <Row gutter={[32, 32]} className="crypto-card-container">
@@ -26,10 +26,10 @@ export default function SkeletonHomepage() {
       </Row>
       <div className="home-heading-container">
         <Title level={2} className="home-title">
-          Latest Crypto News
+          Ultimas noticias
         </Title>
         <Title level={3} className="show-more">
-          Show More
+          Ver más
         </Title>
       </div>
       <Row gutter={[24, 24]}>

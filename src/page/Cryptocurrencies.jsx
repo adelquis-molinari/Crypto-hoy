@@ -24,7 +24,7 @@ export default function Cryptocurrencies({ simplified }) {
       {!simplified && (
         <div className="search-crypto">
           <Input
-            placeholder="Search Cryptocurrency"
+            placeholder="Buscar Cryptomoneda"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
