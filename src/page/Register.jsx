@@ -64,7 +64,7 @@ const Register = () => {
             <img src="/cryptoHoy.png" alt="crypto hoy" className="login-logo" />
           </Col>
           <Col level={3} className="login-title">
-            <Typography.Title level={2}>Sign Up</Typography.Title>
+            <Typography.Title level={2}>Registrarse!</Typography.Title>
           </Col>
           <Form
             {...formItemLayout}
@@ -108,23 +108,15 @@ const Register = () => {
               <Input />
             </Form.Item>
 
-            <Form.Item name="gender" label="Gender" rules={rulesGender}>
-              <Select placeholder="select your gender">
-                <Option value="male">Male</Option>
-                <Option value="female">Female</Option>
-                <Option value="other">Other</Option>
-              </Select>
-            </Form.Item>
-
             <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">
                 Register
               </Button>
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>
-              I already have an account
+              Ya tengo una cuenta
               <Button type="link" href="/login">
-                Login
+                ir al inicio
               </Button>
             </Form.Item>
           </Form>

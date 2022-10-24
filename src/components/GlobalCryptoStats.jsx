@@ -15,23 +15,32 @@ export default function GlobalCryptoStats({ globalStats }) {
   return (
     <>
       <Title level={2} className="heading">
-        Global Crypto Stats
+        Estadísticas globales
       </Title>
       <Row>
         <Col span={12}>
-          <Statistic title="Total Cryptocurrencies" value={millify(total)} />
+          <Statistic title="Criptomonedas totales" value={millify(total)} />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Exchanges" value={millify(totalExchanges)} />
+          <Statistic
+            title="Intercambios totales"
+            value={millify(totalExchanges)}
+          />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Market Cap" value={millify(totalMarketCap)} />
+          <Statistic
+            title="Cotizaciones totales"
+            value={millify(totalMarketCap)}
+          />
         </Col>
         <Col span={12}>
-          <Statistic title="Total 24h Volume" value={millify(total24hVolume)} />
+          <Statistic
+            title="Volumen total en 24hs"
+            value={millify(total24hVolume)}
+          />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Markets" value={millify(totalMarkets)} />
+          <Statistic title="Mercados Totales" value={millify(totalMarkets)} />
         </Col>
       </Row>
     </>

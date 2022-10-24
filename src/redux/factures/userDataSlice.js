@@ -25,7 +25,6 @@ export const userDataSlice = createSlice({
       state = [];
     },
     loginUser: (state, action) => {
-      console.log("desde state : ", action.payload);
       state.push(action.payload);
     },
   },
@@ -40,3 +39,6 @@ export const {
 } = userDataSlice.actions;
 
 export default userDataSlice.reducer;
+
+const email = "adelkis@gmail.com";
+// devolver asta encontrar el '@' desde posicio 0

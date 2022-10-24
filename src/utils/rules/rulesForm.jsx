@@ -1,25 +1,25 @@
 const rulesEmail = [
   {
     type: "email",
-    message: "The input is not valid E-mail!",
+    message: "E-mail no  valido!",
   },
   {
     required: true,
-    message: "Please input your E-mail!",
+    message: "Por favor ingrese su e-mail!",
   },
 ];
 const rulesPassword = [
-  { required: true, message: "Please input your password!" },
+  { required: true, message: "Por favor ingrase su Password!" },
   {
     pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
     message:
-      "The password must have at least 8 characters, a capital letter, a lowercase and a number",
+      "El password debe tener al menos 8 caracteres, una letra mayúscula, una minúscula y un número",
   },
 ];
 const rulesConfirmPassword = [
   {
     required: true,
-    message: "Please confirm your password!",
+    message: "Por favor confirme su password!",
   },
   ({ getFieldValue }) => ({
     validator(_, value) {
@@ -28,7 +28,7 @@ const rulesConfirmPassword = [
       }
 
       return Promise.reject(
-        new Error("The two passwords that you entered do not match!")
+        new Error("Los dos password que ingresaste no coinciden!")
       );
     },
   }),
@@ -37,7 +37,7 @@ const rulesConfirmPassword = [
 const rulesNick = [
   {
     required: true,
-    message: "Please input your nickname!",
+    message: "Por favor ingrese su nickname!",
     whitespace: true,
   },
 ];

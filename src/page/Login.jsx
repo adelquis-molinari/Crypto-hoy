@@ -19,22 +19,22 @@ export default function Login() {
   const navigate = useNavigate();
   const [errorSpan, setErrorSpan] = useState("");
 
-  const onFinish = (e) => {
+  const onFinish = async (e) => {
     // TODO: agregar
     setErrorSpan("");
-    logIn(e.email, e.password)
+    await logIn(e.email, e.password)
       .then(() => navigate("/"))
       .catch((e) => {
         if (e.code === "auth/wrong-password") {
-          message.error("There was a typo, wrong password 😵");
-          setErrorSpan("There was a typo, wrong password 😵");
+          message.error("Hubo un error, contraseña incorrecta 😵");
+          setErrorSpan("Hubo un error, contraseña incorrecta 😵");
         } else if (e.code === "auth/user-not-found") {
-          message.error("Ouuups! User not found 😫");
-          setErrorSpan("Ouuups! User not found 😫");
+          message.error("Ouuups! Usuario no encontrado 😫");
+          setErrorSpan("Ouuups! Usuario no encontrado 😫");
         } else {
-          message.error("Could it be that you don't have an account? 🤔");
-          message.info("Try creating one! Register now!");
-          setErrorSpan("Try creating one! Register now!");
+          message.error("¿Será que no tienes cuenta? 🤔");
+          message.info("¡Intenta crear uno! ¡Regístrate ahora!");
+          setErrorSpan("¡Intenta crear uno! ¡Regístrate ahora!");
         }
       });
   };
@@ -46,7 +46,10 @@ export default function Login() {
             <img src="/cryptoHoy.png" alt="crypto hoy" className="login-logo" />
           </Col>
           <Col level={3} className="login-title">
-            <Typography.Title level={2}>Login</Typography.Title>
+            <Typography.Title level={1}>Crypto Hoy</Typography.Title>
+            <Typography.Title level={5}>
+              Inicia sesión para continuar
+            </Typography.Title>
           </Col>
           <Form
             name="basic"
@@ -59,9 +62,6 @@ export default function Login() {
             <Form.Item label="Password" name="password" rules={rulesPassword}>
               <Input.Password />
             </Form.Item>
-            <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
             <span className="error-span">{errorSpan}</span>
             <Form.Item>
               <Button type="primary" htmlType="submit">
@@ -69,9 +69,9 @@ export default function Login() {
               </Button>
             </Form.Item>
             <span>
-              Don't have an account?
+              No tienes cuenta?
               <Button type="link" href="/register">
-                Register
+                Registrate
               </Button>
             </span>
           </Form>

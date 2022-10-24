@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { Col, Row, Typography } from "antd";
+import { useMemo, useEffect, useState } from "react";
+import { Col, Row } from "antd";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,7 +11,6 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import Loader from "./Loader";
 
 ChartJS.register(
   CategoryScale,
@@ -26,6 +25,14 @@ ChartJS.register(
 // const { Title } = Typography;
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
+  const [change, setChange] = useState(true);
+
+  useEffect(() => {
+    if (coinHistory?.data?.change < 0) {
+      setChange(false);
+    }
+  }, [coinHistory]);
+
   const coinPrice = useMemo(() => {
     return coinHistory?.data?.history?.map((coin) => coin.price);
   }, [coinHistory]);
@@ -79,7 +86,12 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
       <Row className="chart-header">
         <h2 className="chart-title">{coinName} Price Chart </h2>
         <Col className="price-container">
-          <h5 className="price-change">Change: {coinHistory?.data?.change}%</h5>
+          <h5 className="price-change">
+            Change:
+            <span className={change ? " change-up" : "change-down"}>
+              {coinHistory?.data?.change}%
+            </span>
+          </h5>
           <h5 className="current-price">
             Current {coinName} Price: $ {currentPrice}
           </h5>

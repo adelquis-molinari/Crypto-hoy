@@ -384,3 +384,10 @@ a:hover {
   padding: 20px;
   align-items: center;
 }
+
+.change-down {
+  color: red;
+}
+.change-up {
+  color: green;
+}

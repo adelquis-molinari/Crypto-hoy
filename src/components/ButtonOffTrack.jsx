@@ -8,12 +8,12 @@ const ButtonOffTrack = ({ uuid }) => {
 
   const handleDelete = () => {
     dispatch(deleteTrackCoin(uuid));
-    message.error("Coin removed from tracking list!");
+    message.error("Moneda eliminada de la lista de seguimiento!");
   };
 
   return (
     <Button type="primary" danger ghost>
-      <Popconfirm title="Are you sure?" onConfirm={handleDelete}>
+      <Popconfirm title="Estas seguro?" onConfirm={handleDelete}>
         {<DeleteOutlined />}
       </Popconfirm>
     </Button>

@@ -1,0 +1,34 @@
+.avatar-container {
+  display: flex;
+  margin: 0 1em;
+  pading: 0.5em;
+}
+.avatar-description {
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.avatar-name {
+  font-weight: bold;
+  color: #0071bd;
+}
+.avatar-action {
+  display: flex;
+  gap: 15px;
+}
+.avatar-button {
+  background-color: #0071bd;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+.avatar-button:hover {
+  background-color: #005a9c;
+}

@@ -22,14 +22,14 @@ export default function News({ simplified }) {
           <Select
             showSearch
             className="select-news"
-            placeholder="Select a Crypto"
+            placeholder="Buscar por criptomoneda"
             optionFilterProp="children"
             onChange={(value) => setNewsCategory(value)}
             filterOption={(input, option) =>
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            <Option value="Cryptocurrency">Cryptocurrency</Option>
+            <Option value="Cryptocurrency">Criptomoneda</Option>
             {data?.data?.coins.map((coin) => (
               <Option value={coin.name} key={coin.name}>
                 {coin.name}
