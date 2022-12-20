@@ -2,12 +2,13 @@ import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { loginUser } from "../redux/factures/userDataSlice";
+import Loader from "./Loader";
 
 export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
   const dispatch = useDispatch();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader />;
 
   if (!user) return <Navigate to="/login" />;
   const userData = {

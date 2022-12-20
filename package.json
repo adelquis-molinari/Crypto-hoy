@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest --coverage"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -14,7 +16,6 @@
     "antd": "^4.23.5",
     "chart.js": "^3.9.1",
     "firebase": "^9.11.0",
-    "framer-motion": "^7.5.3",
     "html-react-parser": "^3.0.4",
     "millify": "^5.0.1",
     "react": "^18.2.0",
@@ -27,6 +28,8 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
-    "vite": "^3.1.0"
+    "@vitest/coverage-c8": "^0.24.3",
+    "vite": "^3.1.0",
+    "vitest": "^0.24.3"
   }
 }

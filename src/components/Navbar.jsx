@@ -58,6 +58,9 @@ export default function Navbar() {
             <Menu.Item icon={<AimOutlined />} key="four">
               <Link to="/tracking">Seguimiento</Link>
             </Menu.Item>
+            <Menu.Item icon={<AimOutlined />} key="five">
+              <Link to="/analytics">Analítica</Link>
+            </Menu.Item>
           </Menu>
         </div>
       )}
