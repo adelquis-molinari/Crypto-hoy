@@ -69,10 +69,7 @@ export default function Login() {
               </Button>
             </Form.Item>
             <span>
-              No tienes cuenta?
-              <Button type="link" href="/register">
-                Registrate
-              </Button>
+              No tienes cuenta? <a href="/register">Registrate</a>
             </span>
           </Form>
         </Col>
