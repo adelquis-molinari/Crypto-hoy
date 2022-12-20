@@ -3,52 +3,48 @@ import {
   rulesEmail,
   rulesConfirmPassword,
   rulesPassword,
-  rulesGender,
   rulesNick,
 } from "../utils/rules/rulesForm";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { setUserData } from "../redux/factures/userDataSlice";
 import { useDispatch } from "react-redux";
-
-const { Option } = Select;
-
-const formItemLayout = {
-  labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 10,
-    },
-  },
-  wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 14,
-    },
-  },
-};
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 10,
-    },
-  },
-};
 
 const Register = () => {
   const [form] = Form.useForm();
   const { signUp } = useAuth();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const formItemLayout = {
+    labelCol: {
+      xs: {
+        span: 24,
+      },
+      sm: {
+        span: 10,
+      },
+    },
+    wrapperCol: {
+      xs: {
+        span: 24,
+      },
+      sm: {
+        span: 14,
+      },
+    },
+  };
+  const tailFormItemLayout = {
+    wrapperCol: {
+      xs: {
+        span: 24,
+        offset: 0,
+      },
+      sm: {
+        span: 16,
+        offset: 10,
+      },
+    },
+  };
 
   const onFinish = async (values) => {
     await signUp(values.email, values.password).then(() => navigate("/"));
