@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Row, Select, Typography } from "antd";
+import { Button, Form, Input } from "antd";
 import {
   rulesEmail,
   rulesConfirmPassword,
@@ -7,13 +7,11 @@ import {
 } from "../utils/rules/rulesForm";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
-const Register = () => {
+const FormRegister = ({ setFormChange }) => {
   const [form] = Form.useForm();
   const { signUp } = useAuth();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const formItemLayout = {
     labelCol: {
@@ -52,72 +50,60 @@ const Register = () => {
 
   return (
     <>
-      <Row justify="center" align="middle" className="login-container">
-        <Col span={12} md={6}>
-          <Col level={3} className="login-title-logo">
-            <img src="/cryptoHoy.png" alt="crypto hoy" className="login-logo" />
-          </Col>
-          <Col level={3} className="login-title">
-            <Typography.Title level={2}>Registrarse!</Typography.Title>
-          </Col>
-          <Form
-            {...formItemLayout}
-            form={form}
-            name="register"
-            onFinish={onFinish}
-            initialValues={{
-              prefix: "86",
-            }}
-            scrollToFirstError
-          >
-            <Form.Item name="email" label="E-mail" rules={rulesEmail}>
-              <Input />
-            </Form.Item>
+      <Form
+        {...formItemLayout}
+        form={form}
+        name="register"
+        onFinish={onFinish}
+        initialValues={{
+          prefix: "86",
+        }}
+        scrollToFirstError
+      >
+        <Form.Item name="email" label="E-mail" rules={rulesEmail}>
+          <Input />
+        </Form.Item>
 
-            <Form.Item
-              name="password"
-              label="Password"
-              rules={rulesPassword}
-              hasFeedback
-            >
-              <Input.Password />
-            </Form.Item>
+        <Form.Item
+          name="password"
+          label="Password"
+          rules={rulesPassword}
+          hasFeedback
+        >
+          <Input.Password />
+        </Form.Item>
 
-            <Form.Item
-              name="confirm"
-              label="Confirm Password"
-              dependencies={["password"]}
-              hasFeedback
-              rules={rulesConfirmPassword}
-            >
-              <Input.Password />
-            </Form.Item>
+        <Form.Item
+          name="confirm"
+          label="Confirm Password"
+          dependencies={["password"]}
+          hasFeedback
+          rules={rulesConfirmPassword}
+        >
+          <Input.Password />
+        </Form.Item>
 
-            <Form.Item
-              name="nickname"
-              label="Nickname"
-              tooltip="What do you want others to call you?"
-              rules={rulesNick}
-            >
-              <Input />
-            </Form.Item>
+        <Form.Item
+          name="nickname"
+          label="Nickname"
+          tooltip="What do you want others to call you?"
+          rules={rulesNick}
+        >
+          <Input />
+        </Form.Item>
 
-            <Form.Item {...tailFormItemLayout}>
-              <Button type="primary" htmlType="submit">
-                Register
-              </Button>
-            </Form.Item>
-            <Form.Item {...tailFormItemLayout}>
-              Ya tengo una cuenta
-              <Button type="link" href="/login">
-                ir al inicio
-              </Button>
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
+        <Form.Item {...tailFormItemLayout}>
+          <Button type="primary" htmlType="submit">
+            Register
+          </Button>
+        </Form.Item>
+        <Form.Item {...tailFormItemLayout}>
+          Ya tengo una cuenta
+          <Button onClick={() => setFormChange(false)}>ir al inicio</Button>
+        </Form.Item>
+      </Form>
     </>
   );
 };
 
-export default Register;
+export default FormRegister;
