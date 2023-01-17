@@ -99,7 +99,12 @@ const FormRegister = ({ setFormChange }) => {
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           Ya tengo una cuenta
-          <Button onClick={() => setFormChange(false)}>ir al inicio</Button>
+          <Button
+            onClick={() => setFormChange(false)}
+            style={{ border: "none" }}
+          >
+            ir al inicio
+          </Button>
         </Form.Item>
       </Form>
     </>

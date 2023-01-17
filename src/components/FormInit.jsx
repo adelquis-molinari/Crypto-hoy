@@ -43,7 +43,9 @@ function FormInit({ setFormChange }) {
       </Form.Item>
       <span>
         No tienes cuenta?{" "}
-        <button onClick={() => setFormChange(true)}>Registrate</button>
+        <Button onClick={() => setFormChange(true)} style={{ border: "none" }}>
+          Registrate
+        </Button>
       </span>
     </Form>
   );
